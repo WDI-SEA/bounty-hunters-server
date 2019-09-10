@@ -68,7 +68,7 @@ router.put('/:id', (req, res) => {
 
 // DELETE /v1/bounties
 router.delete('/', (req, res) => {
-  db.Bounty.remove()
+  db.Bounty.deleteMany()
   .then(() => {
     res.send({ message: 'We did it?' })
   })
