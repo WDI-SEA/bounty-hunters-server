@@ -1,4 +1,5 @@
 // Require packages
+let cors = require('cors')
 let express = require('express')
 
 // Create instance for express app
@@ -7,6 +8,7 @@ let app = express()
 // Set up middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ limit: '50mb' }))
+app.use(cors())
 
 // Include the controllers
 app.use('/v1/bounties', require('./controllers/v1/bounties'))
