@@ -8,6 +8,10 @@ let app = express()
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ limit: '50mb' }))
 
+// Include the controllers
+app.use('/v1/bounties', require('./controllers/v1/bounties'))
+
+// Catch all route (404: Not found)
 app.get('*', (req, res) => {
   res.status(404).send({ message: 'Not Found' })
 })
